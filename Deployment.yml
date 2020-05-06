@@ -1,0 +1,27 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: krons
+  namespace: homework
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+        - name: lol
+          image: jurdan23/nginx1:lol
+          imagePullPolicy: Always
+          ports:
+            - name: port
+              containerPort: 80
+              protocol: TCP
+      imagePullSecrets:
+        - name: dark1
+     
